@@ -1,0 +1,74 @@
+a, h1, h2, h3, p, span, button {
+    font-family: Mluvka;
+    color: #fff; 
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+#leftPanel {
+    flex: 1;
+    padding: 20px;
+    background-color: #2E294E;  
+    border-right: 1px solid #444; 
+    overflow-y: auto;
+}
+
+
+#rightPanel {
+    flex: 0.6;
+    padding: 20px;
+    background-color: #292847;  
+    overflow-y: hidden;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+#menu button {
+    flex: 1; 
+    padding: 20px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3D3A67; 
+    border: none;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    
+}
+
+
+#paninis{
+    border-radius: 8px 0px 0px 8px;
+}
+
+#admin{
+    border-radius: 0px 8px 8px 0px;
+}
+
+
+
+
+

@@ -1,0 +1,36 @@
+.item {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    background-color: #3e3b668b;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #3D3A67; 
+}
+
+.item:active {
+    background-color: #322F57;  
+}
+
+.productInfo {
+    flex: 1;
+}
+
+
+
+.productImage {
+    width: 100px;
+    height: auto;
+    margin-right: 10px; 
+    border-radius: 8px;
+}
+
+.productInfo h3,
+.productInfo p {
+    margin: 0;
+}

@@ -1,0 +1,101 @@
+#latestOrdersContainer {
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    height: 400px;
+
+  }
+
+  #tablescroll{
+    height: 55vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  #latestOrdersTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-family: Mluvka;  
+  }
+  
+  #latestOrdersTable th, #latestOrdersTable td {
+    padding: 15px; 
+    text-align: left;
+    border-bottom: 1px solid #444;  
+    color: #fff; 
+  }
+  
+  #latestOrdersTable th {
+    background-color: #3D3A67; 
+    font-size: 18px; 
+  }
+  
+  #latestOrdersTable tbody tr:hover {
+    background-color: #3D3A67; 
+  }
+  
+  #latestOrdersTable tbody tr:active {
+    background-color: #322F57; 
+  }
+
+.deleteButton {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+
+  }
+
+  #stocksContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 400px;
+  }
+  
+  #stocksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-family: Mluvka;  
+  }
+  
+  #stocksTable th, #stocksTable td {
+    padding: 15px; 
+    text-align: left;
+    border-bottom: 1px solid #444;  
+    color: #fff; 
+  }
+  
+  #stocksTable th {
+    background-color: #3D3A67; 
+    font-size: 18px; 
+  }
+  
+  #stocksTable tbody tr:hover {
+    background-color: #3D3A67; 
+  }
+  
+  #stocksTable tbody tr:active {
+    background-color: #322F57; 
+  }
+  
+  #latestOrdersButton,
+#stocksButton {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 10px; 
+}
+
+
+#latestOrdersButton:hover,
+#stocksButton:hover {
+    background-color: #2980b9; 
+}

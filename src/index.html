@@ -1,0 +1,248 @@
+<!-- src/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Drawer Controller</title>
+    <link rel="stylesheet" type="text/css" href="styles/admin.css">
+    <link rel="stylesheet" type="text/css" href="styles/cart.css">
+    <link rel="stylesheet" type="text/css" href="styles/itemGrid.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/overlays.css">
+    <link rel="stylesheet" type="text/css" href="styles/stock.css">
+
+</head>
+<body>
+    <div id="leftPanel">
+
+        <div id="loginOverlay">
+            <div id="loginContent">
+                <input type="password" id="passwordInputLogin" placeholder="Entrez le mot de passe">
+                <div id="numericKeypad">
+                    <button onclick="appendToPasswordLoginField('1')">1</button>
+                    <button onclick="appendToPasswordLoginField('2')">2</button>
+                    <button onclick="appendToPasswordLoginField('3')">3</button>
+                    <button onclick="appendToPasswordLoginField('4')">4</button>
+                    <button onclick="appendToPasswordLoginField('5')">5</button>
+                    <button onclick="appendToPasswordLoginField('6')">6</button>
+                    <button onclick="appendToPasswordLoginField('7')">7</button>
+                    <button onclick="appendToPasswordLoginField('8')">8</button>
+                    <button onclick="appendToPasswordLoginField('9')">9</button>
+                    <button onclick="clearPasswordLoginField()">C</button>
+                    <button onclick="appendToPasswordLoginField('0')">0</button>
+                </div>
+                <button onclick="checkLoginPassword()" class="buttonC">Confirmer</button>
+            </div>
+        </div>
+
+        <div id="changeOverlay">
+            <div id="changeContent">
+                <input type="password" id="passwordInputChange" placeholder="Entrez le nouveau mot de passe">
+                <div id="numericKeypad">
+                    <button onclick="appendToPasswordChangeField('1')">1</button>
+                    <button onclick="appendToPasswordChangeField('2')">2</button>
+                    <button onclick="appendToPasswordChangeField('3')">3</button>
+                    <button onclick="appendToPasswordChangeField('4')">4</button>
+                    <button onclick="appendToPasswordChangeField('5')">5</button>
+                    <button onclick="appendToPasswordChangeField('6')">6</button>
+                    <button onclick="appendToPasswordChangeField('7')">7</button>
+                    <button onclick="appendToPasswordChangeField('8')">8</button>
+                    <button onclick="appendToPasswordChangeField('9')">9</button>
+                    <button onclick="clearPasswordChangeField()">C</button>
+                    <button onclick="appendToPasswordChangeField('0')">0</button>
+                </div>
+                <button id="changeLoginMdp" onclick="changePassword()" class="buttonC">Changer mdp</button>
+                <button onclick="closeChangeOverlay()" class="buttonC">Fermer</button>
+            </div>
+        </div>
+
+
+        <div id="menu">
+            <button id="paninis">Paninis</button>
+            <button id="boissons">Boissons</button>
+            <button id="desserts">Desserts</button>
+            <button id="autres">Autres</button>
+            <button id="admin">ADMIN</button>
+        </div>
+        
+        <div id="grid">
+            <div class="item">
+            </div>
+        </div>
+
+        <div id="adminContainer" style="display: none;">
+            <button id="latestOrdersButton" onclick="showLatestOrdersSection()">Dernières actions</button>
+            <button id="stocksButton" onclick="showStocksSection()">Stocks</button>
+            <div id="latestOrdersContainer">
+                
+                <h2>Dernières actions</h2>
+                <div id="tablescroll">
+                    <table id="latestOrdersTable">
+                    <thead>
+                        <tr>
+                        <th>Nom du produit</th>
+                        <th>Quantité</th>
+                        <th>Date et heure</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="latestOrdersTableBody"></tbody>
+                    </table>
+                </div>
+                <div id="adminButtonsActions">
+                    <button id="exportButton">Exporter en CSV</button>
+                    <button id="resetButton" onclick="resetDB()">Reset</button>
+                    <button id="changePasswordButton" onclick="showChangeOverlay()">Changer MDP</button>
+                    <button id="openCDrawer">Ouvrir la caisse</button>
+                </div>
+            </div>
+            
+            <div id="stocksContainer">
+                <h2>Stocks</h2>
+                <div id="tablescroll">
+                    <table id="stocksTable">
+                    <thead>
+                        <tr>
+                        <th>Nom du produit</th>
+                        <th>Quantité en stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stocksTableBody"></tbody>
+                    </table>
+                 </div>
+                <div id="adminButtonsStocks">
+                    <button id="addStock" onclick="showAddStockOverlay()">Ajouter un stock</button>
+                    <button id="correctStock" onclick="showCorrectStockOverlay()">Corriger un stock</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="addStockOverlay">
+            <div id="addStockContent">
+                <h2>Ajouter un stock</h2>
+                
+                <select id="stockProductSelect">
+                </select>
+                <input type="number" id="quantityStock" placeholder="Quantité à ajouter">
+                <div id="numericKeypad">
+                    <button onclick="appendToQuantityField('1')">1</button>
+                    <button onclick="appendToQuantityField('2')">2</button>
+                    <button onclick="appendToQuantityField('3')">3</button>
+                    <button onclick="appendToQuantityField('4')">4</button>
+                    <button onclick="appendToQuantityField('5')">5</button>
+                    <button onclick="appendToQuantityField('6')">6</button>
+                    <button onclick="appendToQuantityField('7')">7</button>
+                    <button onclick="appendToQuantityField('8')">8</button>
+                    <button onclick="appendToQuantityField('9')">9</button>
+                    <button onclick="clearQuantityField()">C</button>
+                    <button onclick="appendToQuantityField('0')">0</button>
+                    <button onclick="oppositeQuantity()">-</button>
+                </div>
+                <button class="buttonC" onclick="confirmStock()">Confirmer</button>
+                <button onclick="closeAddStockOverlay()" class="buttonC">Fermer</button>
+            </div>
+        </div>
+
+        <div id="correctStockOverlay">
+            <div id="correctStockContent">
+                <h2>Ajouter un stock</h2>
+                
+                <select id="correctstockProductSelect">
+                </select>
+                <input type="number" id="correctStockField" placeholder="Quantité à corriger">
+                <div id="numericKeypad">
+                    <button onclick="appendToCorrectField('1')">1</button>
+                    <button onclick="appendToCorrectField('2')">2</button>
+                    <button onclick="appendToCorrectField('3')">3</button>
+                    <button onclick="appendToCorrectField('4')">4</button>
+                    <button onclick="appendToCorrectField('5')">5</button>
+                    <button onclick="appendToCorrectField('6')">6</button>
+                    <button onclick="appendToCorrectField('7')">7</button>
+                    <button onclick="appendToCorrectField('8')">8</button>
+                    <button onclick="appendToCorrectField('9')">9</button>
+                    <button onclick="clearCorrectField()">C</button>
+                    <button onclick="appendToCorrectField('0')">0</button>
+                    <button onclick="oppositeCorrect()">-</button>
+                </div>
+                <button class="buttonC" onclick="confirmCorrect()">Confirmer</button>
+                <button onclick="closeCorrectOverlay()" class="buttonC">Fermer</button>
+            </div>
+        </div>
+
+        <div id="adminOverlay">
+            <div id="adminContent">
+                <input type="password" id="passwordInputAdmin" placeholder="Entrez le mot de passe">
+                <div id="numericKeypad">
+                    <button onclick="appendToPasswordAdminField('1')">1</button>
+                    <button onclick="appendToPasswordAdminField('2')">2</button>
+                    <button onclick="appendToPasswordAdminField('3')">3</button>
+                    <button onclick="appendToPasswordAdminField('4')">4</button>
+                    <button onclick="appendToPasswordAdminField('5')">5</button>
+                    <button onclick="appendToPasswordAdminField('6')">6</button>
+                    <button onclick="appendToPasswordAdminField('7')">7</button>
+                    <button onclick="appendToPasswordAdminField('8')">8</button>
+                    <button onclick="appendToPasswordAdminField('9')">9</button>
+                    <button onclick="clearPasswordAdminField()">C</button>
+                    <button onclick="appendToPasswordAdminField('0')">0</button>
+                </div>
+                <button onclick="checkAdminPassword()" class="buttonC">Confirmer</button>
+                <button onclick="closeAdminOverlay()" class="buttonC">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmationOverlay">
+        <div id="confirmationBox">
+            <p id="confirmationMessage"></p>
+            <div id="confirmationButtons">
+                <button id="confirmButton">Valider</button>
+                <button id="cancelButton">Abandonner</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmationOverlayLydia">
+        <div id="confirmationBoxLydia">
+            <p id="confirmationMessageLydia"></p>
+            <div id="confirmationButtonsLydia">
+                <button id="confirmButtonLydia">Valider</button>
+                <button id="cancelButtonLydia">Abandonner</button>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div id="rightPanel">
+        <div id="cart">
+            <div id="cartTitle">
+                <img src="images/icone.png" alt="Logo" style="width: 70px; margin-bottom: 10px;">
+                <p>Panier</p>
+                <button id="clearCartButton" onclick="clearCart()">Tout effacer</button>
+            </div>
+            <div id="cartItems">
+                <!-- La liste des articles du panier sera affichée ici -->
+            </div>
+            <p>Désolé si c'est moche c'est juste que Jules retient ma famille en otage et va passer à l'acte si le logiciel est pas prêt pour demain (on est dimanche 2h du mat)</p>
+            <div id="cartTotal"><p>Total : <span id="totalAmount">0.00</span> €</p></div>
+            <div id="paymentButtons">
+                <button id="payWithLydia" onclick="confirmLydiaPayment()">Payer avec Lydia</button>
+                <button id="payInCash" onclick="confirmCashPayment()">Payer en espèces</button>
+
+            </div>
+            <div id="shutButton">
+                <button id="shutdownButton">Eteindre la caisse</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="js/loginHour.js"></script>
+    <script src="js/stock.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/renderer.js"></script>
+</body>
+</html>
