@@ -1,5 +1,9 @@
 # CaissePK - Guide d'utilisation et de personnalisation
 
+## ⚠️ AVERTISSEMENT IMPORTANT
+<span style="color: red">**ATTENTION : Après la compilation du projet qui génère un fichier setup.exe, il est IMPÉRATIF de copier manuellement le fichier `products.csv` et le dossier `images` dans le répertoire d'installation. Sans ces fichiers, l'application ne pourra pas afficher les produits ni leurs images !**</span>
+
+
 ## Table des matières
 1. [Présentation et fonctionnalités](#présentation-et-fonctionnalités)
 2. [Guide de personnalisation](#guide-de-personnalisation)
@@ -219,6 +223,15 @@ npm start
 npm run package
 ```
 L'exécutable sera généré dans le dossier `dist/`.
+
+
+🚨 **IMPORTANT** 🚨
+- ❗ La compilation génère un fichier setup.exe
+- ❗ Après installation, vous DEVEZ copier :
+  - 📄 Le fichier `products.csv`
+  - 📁 Le dossier `images`
+- ❗ Ces fichiers doivent être placés dans le dossier d'installation
+- ⚠️ Sans ces fichiers, l'application ne fonctionnera pas correctement !
 
 ### Points d'attention
 1. Le dossier `images/` doit être copié à côté de l'exécutable
